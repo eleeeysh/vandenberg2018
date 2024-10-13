@@ -13,8 +13,22 @@ format:
 
 ## Introduction
 
-[No abstract is needed.]  Each replication project will have a straightforward, no frills report of the study and results.  These reports will be publicly available as supplementary material for the aggregate report(s) of the project as a whole.  Also, to maximize project integrity, the intro and methods will be written and critiqued in advance of data collection.  Introductions can be just 1-2 paragraphs clarifying the main idea of the original study, the target finding for replication, and any other essential information.  It will NOT have a literature review -- that is in the original publication. You can write both the introduction and the methods in past tense.  
+Given the limitations on total available resources, how does the brain make smart use of them? The original study proposed a computational model to explain the mechanism of resource distribution in working memory (WM). For more than a decade, it has been widely assumed that the total WM resources are fixed, and when multiple items need to be retained, they compete for this fixed amount. However, van den Berg and Ma’s model suggests an alternative "resource-rational" theory, where the amount of resources to invest is the one that minimizes behavioral and neural costs. This model is groundbreaking as it introduces one of the first normative theories to explain the set-size effect (i.e., the decrease in memory precision when multiple items are retained simultaneously) and the probe-probability effect (i.e., items of higher future probe probability are encoded with greater precision); both effects are among the most widely observed phenomena in memory tests.
 
+Since our research also focuses on working memory—specifically, how it is influenced by history, context, and how different components interact throughout the process—this paper is highly relevant to our work. The model draws our attention because it outperforms all alternatives by achieving a higher AIC score when fitting various visual working memory (VWM) datasets. Moreover, in addition to predicting the two most substantial effects observed in canonical VWM tests mentioned above, it is the only model (at the time of publication) capable of predicting a few certain effects, such as the non-monotonic relationship between total resources and set size. However, we have several questions regarding the results they obtained:
+
+* Firstly, the fit results they obtained from different datasets vary drastically, despite the similarity in the experimental protocols of these datasets. We wonder what might cause such significant differences—could there be potential issues in their code or fitting approach?
+* Secondly, while the model’s most notable advantage is its ability to predict the non-monotonic change in total resources as set size increases, we are concerned about how they measure total resources. As they themselves mentioned in the limitations section, the model assumes that the encoding and decoding of co-present items are independent, which contradicts substantial evidence suggesting otherwise. Assuming independence may be a non-trivial simplification. Beyond the resources needed to encode features (the only resources they consider), additional resources are required for binding, strategic re-organization, and maintaining information about multiple items as a whole.
+
+To address the questions we have, we propose a computational replication of the original study, with the following analyses:
+
+* Firstly, we plan to re-run the resource-rational model fitting for all datasets used in the original paper. The original scripts are written in MATLAB, but we plan to rewrite them in R (a choice motivated by the fact that the author has zero prior experience with R and sees this as an opportunity to learn it). We will then compare our results with the original findings. The main challenge here is that the algorithm used for fitting is a complex one that involves Bayesian optimization combined with Mesh Adaptive Direct Search (Acerbi & Ma, 2017), which has not yet been implemented in R yet.
+* To further address the first question, we will fit the same model to another open dataset (Kiyonaga et al., 2018). This dataset was collected using the same canonical experimental paradigm as the datasets from the original study. Importantly, it has already been fitted using the variable precision model (as reported in the original paper), which is the most competitive alternative model. We aim to test whether the original conclusion—that the resource-rational model outperforms the variable precision model—still holds for this dataset.
+* For the second question, we plan to modify the original model(s) by considering resources allocated not only for encoding individual features but also for binding them together. With this minor modification, we will explore whether the resource-rational model still provides a better explanation of the data compared to models that assume a fixed total amount of resources.
+
+The link to the repository for this replication project: [repo](https://github.com/eleeeysh/vandenberg2018/tree/main)
+
+The link to the original paper: [paper](https://github.com/eleeeysh/vandenberg2018/blob/main/original_paper/elife-34963.pdf)
 
 ## Methods
 
@@ -93,3 +107,10 @@ Open the discussion section with a paragraph summarizing the primary result from
 ### Commentary
 
 Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+
+## References
+Acerbi, L., & Ma, W. J. (2017). Practical Bayesian optimization for model fitting with Bayesian adaptive direct search. Advances in neural information processing systems, 30.
+
+Kiyonaga, A., Scimeca, J. M., & D’Esposito, M. (2018). Dissociating the causal roles of frontal and parietal cortex in working memory capacity 8.
+
+
