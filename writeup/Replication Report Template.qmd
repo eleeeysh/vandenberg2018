@@ -4,13 +4,13 @@ effects in human visual working memory' by van den Berg & Ma (2018, eLife)"
 author: "Sihan Yang (siy009@ucsd.edu)"
 date: "`r format(Sys.time(), '%B %d, %Y')`"
 format:
-html:
-  toc: true
-  toc_depth: 3
-#   pdf:
-#     toc: true
-#     number-sections: true
-#     colorlinks: true
+# html:
+#   toc: true
+#   toc_depth: 3
+   pdf:
+     toc: true
+     number-sections: true
+     colorlinks: true
 ---
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
@@ -28,7 +28,7 @@ To address the questions we have, we propose a computational replication of the 
 
 * Firstly, we plan to re-run the resource-rational model fitting for all datasets used in the original paper. The original scripts are written in MATLAB, but we plan to rewrite them in R (a choice motivated by the fact that the author has zero prior experience with R and sees this as an opportunity to learn it). We will then compare our results with the original findings. The main challenge here is that the algorithm used for fitting is a complex one that involves Bayesian optimization combined with Mesh Adaptive Direct Search (Acerbi & Ma, 2017), which has not yet been implemented in R yet.
 * To further address the first question, we will fit the same model to another open dataset (Kiyonaga et al., 2018). This dataset was collected using the same canonical experimental paradigm as the datasets from the original study. Importantly, it has already been fitted using the variable precision model (as reported in the original paper), which is the most competitive alternative model. We aim to test whether the original conclusion—that the resource-rational model outperforms the variable precision model—still holds for this dataset.
-* For the second question, we plan to modify the original model(s) by considering resources allocated not only for encoding individual features but also for binding them together. With this minor modification, we will explore whether the resource-rational model still provides a better explanation of the data compared to models that assume a fixed total amount of resources.
+* For the second question, we plan to modify the original model(s) by considering resources allocated not only for encoding individual features but also for binding them together. With this minor modification, we will explore whether the resource-rational model still provides a better explanation of the data compared to models that assume a fixed total amount of resources. While the idea appears straightforward, the main challenge is to formalize it rigorously.
 
 The link to the repository for this replication project: [repo](https://github.com/eleeeysh/vandenberg2018/tree/main)
 
